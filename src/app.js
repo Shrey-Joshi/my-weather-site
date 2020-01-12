@@ -5,6 +5,7 @@ const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
 const app = express()
+const port = process.env.PORT || 3000
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -22,24 +23,24 @@ app.use(express.static(publicDirectoryPath))
 app.get('', (req, res) => {
     res.render('index', {
         title: 'Weather',
-        name: 'Andrew Mead'
+        name: 'Shrey Joshi'
     })
-})
+});
 
 app.get('/about', (req, res) => {
     res.render('about', {
         title: 'About Me',
-        name: 'Andrew Mead'
+        name: 'Shrey Joshi'
     })
-})
+});
 
 app.get('/help', (req, res) => {
     res.render('help', {
         helpText: 'This is some helpful text.',
         title: 'Help',
-        name: 'Andrew Mead'
+        name: 'Shrey Joshi'
     })
-})
+});
 
 app.get('/weather', (req, res) => {
     if (!req.query.address) {
@@ -47,7 +48,7 @@ app.get('/weather', (req, res) => {
             error: 'You must provide an address!'
         })
     }
-
+    
     geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
         if (error) {
             return res.send({ error })
@@ -56,7 +57,7 @@ app.get('/weather', (req, res) => {
         forecast(latitude, longitude, (error, forecastData) => {
             if (error) {
                 return res.send({ error })
-            }
+            };
 
             res.send({
                 forecast: forecastData,
@@ -65,7 +66,7 @@ app.get('/weather', (req, res) => {
             })
         })
     })
-})
+});
 
 app.get('/products', (req, res) => {
     if (!req.query.search) {
@@ -78,24 +79,24 @@ app.get('/products', (req, res) => {
     res.send({
         products: []
     })
-})
+});
 
 app.get('/help/*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Shrey Joshi',
         errorMessage: 'Help article not found.'
     })
-})
+});
 
 app.get('*', (req, res) => {
     res.render('404', {
         title: '404',
-        name: 'Andrew Mead',
+        name: 'Shrey Joshi',
         errorMessage: 'Page not found.'
     })
-})
+});
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
-})
+app.listen(port, () => {
+    console.log('Server is up on port '+port+'.')
+});
