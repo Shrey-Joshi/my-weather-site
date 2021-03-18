@@ -1,15 +1,13 @@
 const request = require('request')
 
 const geocode = (address, callback) => {
-
-	console.log('geocode started')
 	// Ensure the address is proper:
 	// Properly encoding:
 	address = encodeURIComponent(address)
 
 	// Lack of semicolons:
 	// If any then remove them
-	address = address.replaceAll("%3B", "")
+	address = address.replace(/%3B/g, '');
 
 	// Only UTF-8 chars
 
