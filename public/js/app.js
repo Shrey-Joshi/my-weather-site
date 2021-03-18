@@ -20,7 +20,7 @@ weatherForm.addEventListener('submit', e => {
     messageFive.textContent = ""
     messageSix.textContent = ""
 
-    fetch('/weather?address='+location).then((response) => {
+    fetch('/weather?${new URLSearchParams({address: location})}').then((response) => {
         response.json().then((data) => {
             if (data.error) {
                 messageOne.textContent = 'There was an error!'
