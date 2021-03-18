@@ -1,6 +1,8 @@
 const request = require('request')
 
 const geocode = (address, callback) => {
+
+	console.log('geocode started')
 	// Ensure the address is proper:
 	// Properly encoding:
 	address = encodeURIComponent(address)
