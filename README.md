@@ -4,7 +4,7 @@
 https://dpmon-weather-app.herokuapp.com/
 
 ## Usage
-Input the location in the textbox. It will then display the weather data.
+Input the location in the textbox and click Search. It will then display the weather data.
 
 - Keep in mind that there may be multiple locations with the same name.  You can find a specific location by adding more data like the state or country.
 - It will automatically bypass minor spelling mistakes.
