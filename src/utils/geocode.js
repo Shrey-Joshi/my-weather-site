@@ -1,6 +1,14 @@
 const request = require('request')
 
 const geocode = (address, callback) => {
+	/**
+	 * This is the function that gets the location,
+	 *  given a plaintext address.
+	 * Input is a string address.
+	 * Outputs either an error as string or the 
+	 *  number coordinates and string name.
+	 */
+
 	// Ensure the address is proper:
 	// Properly encoding:
 	address = encodeURIComponent(address)

@@ -1,3 +1,9 @@
+/**
+ * This is the server side app.
+ * This runs express and serves the client side app.
+ * This also handles the handlebars engine.
+ */
+
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
@@ -79,5 +85,5 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log('Server is up on port '+port+'.')
+    console.log('Server is up on port ' + port + '.')
 });

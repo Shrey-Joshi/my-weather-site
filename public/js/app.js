@@ -1,3 +1,10 @@
+/**
+ * This is the client side script. 
+ * This sends the plaintext address to server.
+ * This renders the returned location and weather
+ *  data.
+ */
+
 console.log('Client side javascript file is loaded!')
 
 const weatherForm = document.querySelector('form')
