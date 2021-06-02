@@ -36,14 +36,29 @@ weatherForm.addEventListener('submit', e => {
                 }
                 console.log(data.error)
             } else {
+				
+                forecastDataOne = data.forecast.daily.data[0].summary, 
+
+                forecastDataTwo = `It is currently ${(data.forecast.currently.temperature).toPrecision(3)} °F out. There is a ${(data.forecast.currently.precipProbability).toPrecision(1)}% chance of rain.`
+
+                forecastDataThree = `We expect there to be: ${data.forecast.daily.summary}`
+
+                forecastDataFour = `The expected temperature high will be ${(data.forecast.daily.data[0].temperatureHigh).toPrecision(3)} and the expected temperature low will be ${(data.forecast.daily.data[0].temperatureLow).toPrecision(3)}.`
+
+                forecastDataFive = `Humidity will be ${(100*data.forecast.daily.data[0].humidity).toPrecision(3)} and the UV index will be ${data.forecast.daily.data[0].uvIndex}.`
+
                 messageOne.textContent = data.location
-                messageTwo.textContent = data.forecast[0]
-                messageThree.textContent = data.forecast[1]
-                messageFour.textContent = data.forecast[2]
-                messageFive.textContent = data.forecast[3]
-                messageSix.textContent = data.forecast[4]
+                messageTwo.textContent = forecastDataOne
+                messageThree.textContent = forecastDataTwo
+                messageFour.textContent = forecastDataThree
+                messageFive.textContent = forecastDataFour
+                messageSix.textContent = forecastDataFive
                 console.log(data.location)
-                console.log(data.forecast)
+                console.log(forecastDataOne)
+                console.log(forecastDataTwo)
+                console.log(forecastDataThree)
+                console.log(forecastDataFour)
+                console.log(forecastDataFive)
             }
         })
     })
