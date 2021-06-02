@@ -35,9 +35,10 @@ weatherForm.addEventListener('submit', e => {
                     alert(data.error)
                 }
                 console.log(data.error)
+
             } else {
 				
-                forecastDataOne = data.forecast.daily.data[0].summary, 
+                forecastDataOne = data.forecast.daily.data[0].summary
 
                 forecastDataTwo = `It is currently ${(data.forecast.currently.temperature).toPrecision(3)} °F out. There is a ${(data.forecast.currently.precipProbability).toPrecision(1)}% chance of rain.`
 
@@ -53,6 +54,7 @@ weatherForm.addEventListener('submit', e => {
                 messageFour.textContent = forecastDataThree
                 messageFive.textContent = forecastDataFour
                 messageSix.textContent = forecastDataFive
+
                 console.log(data.location)
                 console.log(forecastDataOne)
                 console.log(forecastDataTwo)
